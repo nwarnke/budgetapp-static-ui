@@ -2,7 +2,6 @@
 /.tmp
 /.sass-cache
 /bower_components
-/dist
 .idea/jsLibraryMappings.xml
 .idea/libraries/
 .idea/vcs.xml
