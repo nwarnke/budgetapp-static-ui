@@ -6,8 +6,8 @@ angular.module('permanenceStaticUiApp')
 function MainCtrl($http, $window) {
   this.http = $http;
   this.window = $window;
-  this.username = null;
-  this.password = null;
+  this.username = '';
+  this.password = '';
   this.failedLogin = false;
 
 }
