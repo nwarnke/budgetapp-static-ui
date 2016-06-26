@@ -23,8 +23,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'mainCtrl'
-      })
-      .otherwise({
+      }).when('/welcome',{
+      templateUrl: 'views/welcome.html',
+      controller: 'WelcomeCtrl',
+      controllerAs: 'welcomeCtrl'
+      }).otherwise({
         redirectTo: '/'
       });
   });

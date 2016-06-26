@@ -1,2 +1,21 @@
 {{mainCtrl.data}}
-<p>hello world</p>
+
+<style>
+  .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+  }
+</style>
+
+<div class="login">
+  <h1>Login</h1>
+
+    <input type="text" name="u" placeholder="Username" ng-model="mainCtrl.username" required="required"/>
+    <input type="password" name="p" placeholder="Password" ng-model="mainCtrl.password" required="required"/>
+    <button type="button" ng-click="mainCtrl.submitBtnEvt()" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    <p ng-if="mainCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
+  </div>
