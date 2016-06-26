@@ -10,7 +10,7 @@ function MainCtrl($http) {
   var vm = this;
   this.http({
     method: 'GET',
-    url: 'http://localhost:8080/something'
+    url: 'https://budget-management-backend.herokuapp.com/something'
   }).then(function successCallback(response) {
     vm.data = response.data;
   }, function errorCallback(error) {
