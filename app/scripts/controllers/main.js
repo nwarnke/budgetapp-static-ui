@@ -26,9 +26,10 @@ MainCtrl.prototype.submitBtnEvt = function(){
     console.log(response.data);
     if(response.data.length > 0) {
       vm.window.location = '/#/welcome';
+    }else {
+      vm.style = 'display:none';
+      vm.failedLogin = true;
     }
-    vm.style = 'display:none';
-    vm.failedLogin = true;
   }, function errorCallback(error) {
     console.log('didn\'t work :(');
     console.log(error);
