@@ -10,13 +10,11 @@ function MainCtrl($http, $window, $timeout) {
   this.username = '';
   this.password = '';
   this.failedLogin = false;
-  this.pageLoading = false;
   this.style = 'display:none';
 }
 
 MainCtrl.prototype.submitBtnEvt = function(){
   var vm = this;
-  this.pageLoading = true;
   this.failedLogin = false;
   this.style = '';
   this.http({
@@ -34,7 +32,7 @@ MainCtrl.prototype.submitBtnEvt = function(){
   }, function errorCallback(error) {
     console.log('didn\'t work :(');
     console.log(error);
-    vm.pageLoading = false;
+    vm.style = 'display:none';
   });
 
 };
