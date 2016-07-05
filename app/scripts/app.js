@@ -23,11 +23,21 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'mainCtrl'
-      }).when('/welcome',{
-      templateUrl: 'views/welcome.html',
-      controller: 'WelcomeCtrl',
-      controllerAs: 'welcomeCtrl'
-      }).otherwise({
+      }).when('/budgetsHome',{
+      templateUrl: 'views/budgets/budgetsHome.html',
+      controller: 'BudgetsHomeCtrl',
+      controllerAs: 'budgetsHome'
+      }).when('/budget',{
+        templateUrl: 'views/budgets/openBudget.html',
+        controller: 'budgetCtrl',
+        controllerAs: 'budget'
+      }).when('/myAccount',{
+      templateUrl: 'views/myAccount.html',
+      controller: 'MyAccountCtrl',
+      controllerAs: 'myAccount'
+    }).when('/logOut',{
+      redirectTo: '/'
+    }).otherwise({
         redirectTo: '/'
       });
   });
