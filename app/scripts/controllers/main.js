@@ -3,11 +3,11 @@
 angular.module('permanenceStaticUiApp')
   .controller('MainCtrl', MainCtrl);
 
-function MainCtrl($http, $window, $timeout, $scope) {
+function MainCtrl($http, $window, $timeout, $rootScope) {
   this.http = $http;
   this.window = $window;
+  this.rootScope = $rootScope;
   this.timeout = $timeout;
-  this.scope = $scope;
   this.username = '';
   this.password = '';
   this.failedLogin = false;
@@ -26,7 +26,7 @@ MainCtrl.prototype.submitBtnEvt = function(){
     console.log('worked!');
     console.log(response.data);
     if(response.data.length > 0) {
-      vm.showNavBar = true;
+      vm.rootScope.showNavBar = true;
       vm.window.location = '/#/budgetsHome';
     }else {
       vm.style = 'display:none';

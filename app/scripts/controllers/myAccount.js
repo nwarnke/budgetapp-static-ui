@@ -2,9 +2,9 @@
 angular.module('permanenceStaticUiApp')
   .controller('MyAccountCtrl', MyAccountCtrl);
 
-function MyAccountCtrl($scope) {
-  this.scope = $scope;
-  this.scope.mainCtrl.showNavBar = true;
+function MyAccountCtrl($rootScope) {
+  this.rootScope = $rootScope;
+  this.rootScope.showNavBar = true;
   console.log('welcome');
 }
 

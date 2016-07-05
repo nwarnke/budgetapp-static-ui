@@ -2,9 +2,9 @@
 angular.module('permanenceStaticUiApp')
   .controller('BudgetsHomeCtrl', BudgetsHomeCtrl);
 
-function BudgetsHomeCtrl($scope) {
-  this.scope = $scope;
-  this.scope.mainCtrl.showNavBar = true;
+function BudgetsHomeCtrl($rootScope) {
+  this.rootScope = $rootScope;
+  this.rootScope.showNavBar = true;
   //this.initialize();
   console.log('welcome');
 }
