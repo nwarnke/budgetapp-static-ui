@@ -27,7 +27,7 @@ MainCtrl.prototype.submitBtnEvt = function(){
     console.log(response.data);
     if(response.data.length > 0) {
       vm.rootScope.showNavBar = true;
-      vm.window.location = '/#/budgetsHome';
+      vm.window.location = '/#/BudgetsHome';
     }else {
       vm.style = 'display:none';
       vm.failedLogin = true;

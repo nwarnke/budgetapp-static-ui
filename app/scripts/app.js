@@ -23,13 +23,13 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'mainCtrl'
-      }).when('/budgetsHome',{
-      templateUrl: 'views/budgets/budgetsHome.html',
+      }).when('/BudgetsHome',{
+      templateUrl: 'views/budgets/BudgetsHome.html',
       controller: 'BudgetsHomeCtrl',
       controllerAs: 'budgetsHome'
       }).when('/budget',{
-        templateUrl: 'views/budgets/openBudget.html',
-        controller: 'budgetCtrl',
+        templateUrl: 'views/budgets/Budget.html',
+        controller: 'BudgetCtrl',
         controllerAs: 'budget'
       }).when('/myAccount',{
       templateUrl: 'views/myAccount.html',
