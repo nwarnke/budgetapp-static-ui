@@ -26,15 +26,15 @@ angular
       }).when('/BudgetsHome',{
       templateUrl: 'views/budgets/BudgetsHome.html',
       controller: 'BudgetsHomeCtrl',
-      controllerAs: 'budgetsHome'
+      controllerAs: 'budgetsHomeCtrl'
       }).when('/budget',{
         templateUrl: 'views/budgets/Budget.html',
         controller: 'BudgetCtrl',
-        controllerAs: 'budget'
+        controllerAs: 'budgetCtrl'
       }).when('/myAccount',{
       templateUrl: 'views/myAccount.html',
       controller: 'MyAccountCtrl',
-      controllerAs: 'myAccount'
+      controllerAs: 'myAccountCtrl'
     }).when('/logOut',{
       redirectTo: '/'
     }).otherwise({
