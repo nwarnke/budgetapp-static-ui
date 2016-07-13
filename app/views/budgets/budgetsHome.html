@@ -5,6 +5,20 @@
     <title>Home</title>
 </head>
 <body>
+<table>
+  <th>Budget Title</th>
+  <th>Current Expense Total</th>
+  <th>Budget Limit</th>
+  <th>Creation Date</th>
+  <th>actions</th>
+  <tr ng-repeat="budget in budgetsHome.budgets">
+  <td>{{budget.name}}</td>
+    <td>{{budget.expenseTotal}}</td>
+    <td>{{budget.totalLimit}}</td>
+    <td>{{budget.origDate}}</td>
+    <td><button>Delete</button></td>
+  </tr>
+</table>
 
 <h1>Welcome 4thDimensionalThinkers!</h1>
 <br><br><h2>You are logged in as {{budgetsHome.currentUser}}</h2>

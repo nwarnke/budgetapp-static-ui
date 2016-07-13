@@ -30,7 +30,7 @@ angular
       }).when('/budget',{
         templateUrl: 'views/budgets/Budget.html',
         controller: 'BudgetCtrl',
-        controllerAs: 'budget'
+        controllerAs: 'statement'
       }).when('/myAccount',{
       templateUrl: 'views/myAccount.html',
       controller: 'MyAccountCtrl',
