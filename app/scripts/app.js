@@ -30,11 +30,11 @@ angular
       }).when('/budget',{
         templateUrl: 'views/budgets/Budget.html',
         controller: 'BudgetCtrl',
-        controllerAs: 'statement'
+        controllerAs: 'budgetCtrl'
       }).when('/myAccount',{
       templateUrl: 'views/myAccount.html',
       controller: 'MyAccountCtrl',
-      controllerAs: 'myAccount'
+      controllerAs: 'myAccountCtrl'
     }).when('/logOut',{
       redirectTo: '/'
     }).otherwise({
