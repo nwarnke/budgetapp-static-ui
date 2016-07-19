@@ -12,7 +12,7 @@
   <th>Creation Date</th>
   <th>actions</th>
   <tr ng-repeat="budget in budgetsHome.budgets">
-  <td>{{budget.name}}</td>
+  <td><a href="#/budget">{{budget.name}}</a></td>
     <td>{{budget.expenseTotal}}</td>
     <td>{{budget.totalLimit}}</td>
     <td>{{budget.origDate}}</td>

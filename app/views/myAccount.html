@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome</title>
+  <title>My Account</title>
 </head>
 <body>
 
 <h1>Here is where the account stuff will be</h1>
+<li><label>User Name: </label><input type="text" ng-model="username" aria-required="true" /></li>
+<li><button ng-click="myAccountCtrl.clickChangePassword()">Change Password</button></li>
+<div ng-show="myAccountCtrl.changingPassword">
+<p>
+  <li><label>Enter New Password: </label><input type="text" ></li>
+  <li><label>Confirm New Password: </label><input type="text" ></li>
+  <li><label>Old Password: </label><input type="text" ></li>
+  <li><button ng-click="myAccountCtrl.submitNewPassword()">Submit New Password</button></li>
+</p>
+</div>
+
 </body>
 </html>
