@@ -4,8 +4,4 @@
 /bower_components
 .idea/jsLibraryMappings.xml
 .idea/libraries/
-.idea/vcs.xml
-.idea/workspace.xml
-/dist/*
-*.iml
 /.idea/*
