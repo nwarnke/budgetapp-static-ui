@@ -4,6 +4,9 @@ angular.module('budgetApp')
 
 function HomeCtrl($rootScope, $scope, Rest) {
   this.rest = Rest;
+  this.rest.getUserInfo().then(function(data){
+    console.log(data);
+  });
   console.log(this.rest);
   this.scope = $scope;
   this.budgets = [];

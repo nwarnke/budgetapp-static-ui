@@ -17,7 +17,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -40,4 +40,7 @@ angular
     }).otherwise({
         redirectTo: '/'
       });
+
+    $httpProvider.defaults.withCredentials = true;
+
   });
