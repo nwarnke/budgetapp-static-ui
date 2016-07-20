@@ -2,7 +2,9 @@
 angular.module('budgetApp')
   .controller('HomeCtrl', HomeCtrl);
 
-function HomeCtrl($rootScope, $scope) {
+function HomeCtrl($rootScope, $scope, Rest) {
+  this.rest = Rest;
+  console.log(this.rest);
   this.scope = $scope;
   this.budgets = [];
   this.rootScope = $rootScope;
