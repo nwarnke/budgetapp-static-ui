@@ -67,12 +67,12 @@
 <div class="login">
   <h1>Login</h1>
 
-  <input type="text" name="u" placeholder="Username" ng-model="mainCtrl.username" required="required"/>
-  <input type="password" name="p" placeholder="Password" ng-model="mainCtrl.password" required="required"/>
-  <button type="button" ng-click="mainCtrl.submitBtnEvt()" class="btn btn-primary btn-block btn-large">Let me in.
+  <input type="text" name="u" placeholder="Username" ng-model="loginCtrl.username" required="required"/>
+  <input type="password" name="p" placeholder="Password" ng-model="loginCtrl.password" required="required"/>
+  <button type="button" ng-click="loginCtrl.submitBtnEvt()" class="btn btn-primary btn-block btn-large">Let me in.
   </button>
-  <div style="{{mainCtrl.style}}" class="spinner"></div>
-  <p ng-if="mainCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
+  <!--<div style="{{mainCtrl.style}}" class="spinner"></div>-->
+  <p ng-if="loginCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
 
 </div>
 

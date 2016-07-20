@@ -11,16 +11,16 @@
   <th>Budget Limit</th>
   <th>Creation Date</th>
   <th>actions</th>
-  <tr ng-repeat="budget in budgetsHome.budgets">
-  <td><a href="#/budget">{{budget.name}}</a></td>
-    <td>{{budget.expenseTotal}}</td>
-    <td>{{budget.totalLimit}}</td>
-    <td>{{budget.origDate}}</td>
+  <tr ng-repeat="budget in homeCtrl.budgets">
+  <td><a href="#/budget">{{homeCtrl.name}}</a></td>
+    <td>{{homeCtrl.expenseTotal}}</td>
+    <td>{{homeCtrl.totalLimit}}</td>
+    <td>{{homeCtrl.origDate}}</td>
     <td><button>Delete</button></td>
   </tr>
 </table>
 
 <h1>Welcome 4thDimensionalThinkers!</h1>
-<br><br><h2>You are logged in as {{budgetsHome.currentUser}}</h2>
+<br><br><h2>You are logged in as {{homeCtrl.currentUser}}</h2>
 </body>
 </html>
