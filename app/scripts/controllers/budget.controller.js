@@ -1,5 +1,5 @@
 'use strict';
-angular.module('permanenceStaticUiApp')
+angular.module('budgetApp')
   .controller('BudgetCtrl', BudgetCtrl);
 
 function BudgetCtrl($rootScope) {

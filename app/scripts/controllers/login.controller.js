@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('permanenceStaticUiApp')
-  .controller('MainCtrl', MainCtrl);
+angular.module('budgetApp')
+  .controller('LoginCtrl', LoginCtrl);
 
-function MainCtrl($http, $window, $timeout, $rootScope) {
+function LoginCtrl($http, $window, $timeout, $rootScope) {
   this.http = $http;
   this.window = $window;
   this.rootScope = $rootScope;
@@ -14,7 +14,7 @@ function MainCtrl($http, $window, $timeout, $rootScope) {
   this.style = 'display:none';
 }
 
-MainCtrl.prototype.submitBtnEvt = function(){
+LoginCtrl.prototype.submitBtnEvt = function(){
   var vm = this;
   this.failedLogin = false;
   this.style = '';

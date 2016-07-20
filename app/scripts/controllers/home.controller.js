@@ -1,8 +1,8 @@
 'use strict';
-angular.module('permanenceStaticUiApp')
-  .controller('BudgetsHomeCtrl', BudgetsHomeCtrl);
+angular.module('budgetApp')
+  .controller('HomeCtrl', HomeCtrl);
 
-function BudgetsHomeCtrl($rootScope, $scope) {
+function HomeCtrl($rootScope, $scope) {
   this.scope = $scope;
   this.budgets = [];
   this.rootScope = $rootScope;
@@ -11,7 +11,7 @@ function BudgetsHomeCtrl($rootScope, $scope) {
   console.log('welcome');
 }
 
-BudgetsHomeCtrl.prototype.initialize = function(){
+HomeCtrl.prototype.initialize = function(){
   //var vm = this;
   this.budgets = [{
     name: 'Vacation Budget',
@@ -34,7 +34,7 @@ BudgetsHomeCtrl.prototype.initialize = function(){
 
 };
 
-BudgetsHomeCtrl.prototype.goTo = function(link){
+HomeCtrl.prototype.goTo = function(link){
   var vm = this;
   vm.window.location = '/#/'+link;
 };

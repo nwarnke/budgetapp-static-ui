@@ -1,8 +1,8 @@
 'use strict';
-angular.module('permanenceStaticUiApp')
-  .controller('MyAccountCtrl', MyAccountCtrl);
+angular.module('budgetApp')
+  .controller('AccountCtrl', AccountCtrl);
 
-function MyAccountCtrl($rootScope, $scope) {
+function AccountCtrl($rootScope, $scope) {
   this.scope = $scope;
   this.changingPassword = false;
   this.inEditMode = false;
@@ -12,14 +12,14 @@ function MyAccountCtrl($rootScope, $scope) {
   console.log('welcome');
 }
 
-MyAccountCtrl.prototype.initialize = function() {
+AccountCtrl.prototype.initialize = function() {
   this.changingPassword = false;
-}
+};
 
-MyAccountCtrl.prototype.clickChangePassword = function () {
+AccountCtrl.prototype.clickChangePassword = function () {
   this.changingPassword = true;
 };
 
-MyAccountCtrl.prototype.submitNewPassword = function () {
+AccountCtrl.prototype.submitNewPassword = function () {
   this.changingPassword = false;
 };
