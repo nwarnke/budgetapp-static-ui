@@ -13,7 +13,7 @@ function Rest($http, $q){
   var performPost = function (url, params) {
     var deferred = $q.defer();
     $http({
-      url:SERVICE_URL+'/login/authenticate',
+      url:SERVICE_URL+url,
       method:'POST',
       params:params
     }).then(function (response) {
