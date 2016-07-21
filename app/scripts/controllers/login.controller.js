@@ -5,8 +5,8 @@ angular.module('budgetApp')
 
 function LoginCtrl(Rest, $window) {
   this.rest = Rest;
-  this.username = null;
-  this.password = null;
+  this.username = '';
+  this.password = '';
   this.style = "display:none";
   this.failedLogin = false;
   this.window = $window;
