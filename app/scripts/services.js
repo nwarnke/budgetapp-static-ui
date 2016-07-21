@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('Rest', Rest);
+  .factory('Rest', Rest)
+  .factory('AuthenticationService', AuthenticationService);
 
 function Rest($http, $q) {
   var SERVICE_URL;
@@ -61,4 +62,21 @@ function Rest($http, $q) {
     }
   }
 
+}
+
+function AuthenticationService(){
+  var userIsAuthenticated = false;
+
+  var setUserAuthenticated = function(value){
+    userIsAuthenticated = value;
+  };
+
+  var getUserAuthenticated = function(){
+    return userIsAuthenticated;
+  };
+
+  return {
+    setUserAuthenticated:setUserAuthenticated,
+    getUserAuthenticated:getUserAuthenticated
+  }
 }

@@ -6,11 +6,11 @@ function HomeCtrl($rootScope, $scope, Rest, $window) {
   this.rest = Rest;
   this.window = $window;
   var vm = this;
-  this.rest.isAuthenticatedToViewPage('/home/authenticated').then(function(data){
-    if(!data.data){
-      vm.window.location = '#/';
-    }
-  });
+  // this.rest.isAuthenticatedToViewPage('/home/authenticated').then(function(data){
+  //   if(!data.data){
+  //     vm.window.location = '#/';
+  //   }
+  // });
 
   this.scope = $scope;
   this.budgets = [];
