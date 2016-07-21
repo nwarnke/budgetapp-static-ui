@@ -51,17 +51,7 @@ function Rest($http, $q) {
       return performPost(url, params);
     },
     getUserInfo: function () {
-      var url = '/login/userinfo';
-      var params = {};
-      return performGet(url, params);
-    },
-    one:function(){
-      var url = '/login/one';
-      var params = {};
-      return performGet(url, params);
-    },
-    two:function(){
-      var url = '/login/two';
+      var url = '/account/userinfo';
       var params = {};
       return performGet(url, params);
     }

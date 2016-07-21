@@ -25,14 +25,3 @@ LoginCtrl.prototype.submitBtnEvt = function(){
   });
 };
 
-LoginCtrl.prototype.one = function(){
-  this.rest.one().then(function(data){
-    console.log(data);
-  });
-};
-
-LoginCtrl.prototype.two = function(){
-  this.rest.two().then(function(data){
-    console.log(data);
-  });
-};
