@@ -14,8 +14,15 @@ function LoginCtrl(Rest, $window, AuthenticationService) {
 }
 
 LoginCtrl.prototype.submitBtnEvt = function(){
+  this.failedLogin = false;
   this.style = "";
   var vm = this;
+  if(this.username == undefined){
+    this.username = '';
+  }
+  if(this.password == undefined){
+    this.password = '';
+  }
   this.rest.isAuthUser(this.username, this.password).then(function(data){
     if(data.data){
       vm.authenticationservice.setUserAuthenticated(true);
