@@ -54,6 +54,10 @@ function Rest($http, $q) {
       var url = '/account/userinfo';
       var params = {};
       return performGet(url, params);
+    },
+    isAuthenticatedToViewPage:function(url){
+      var params = {};
+      return performGet(url, params);
     }
   }
 

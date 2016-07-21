@@ -2,12 +2,16 @@
 angular.module('budgetApp')
   .controller('HomeCtrl', HomeCtrl);
 
-function HomeCtrl($rootScope, $scope, Rest) {
+function HomeCtrl($rootScope, $scope, Rest, $window) {
   this.rest = Rest;
-  this.rest.getUserInfo().then(function(data){
-    console.log(data);
+  this.window = $window;
+  var vm = this;
+  this.rest.isAuthenticatedToViewPage('/home/authenticated').then(function(data){
+    if(!data.data){
+      vm.window.location = '#/';
+    }
   });
-  console.log(this.rest);
+
   this.scope = $scope;
   this.budgets = [];
   this.rootScope = $rootScope;
@@ -17,7 +21,6 @@ function HomeCtrl($rootScope, $scope, Rest) {
 }
 
 HomeCtrl.prototype.initialize = function(){
-  //var vm = this;
   this.budgets = [{
     name: 'Vacation Budget',
     expenseTotal: 550,
