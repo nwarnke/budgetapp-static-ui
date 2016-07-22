@@ -15,7 +15,7 @@
         <li><a href="#">My Account</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="#">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -31,9 +31,38 @@
     <hr>
     <hr>
     <table>
+      <tr>
+        <th>
+          Budget Name
+        </th>
+        <th>
+          Budget Limit
+        </th>
+        <th>
+          Current Amount
+        </th>
+        <th>
+          Start Date
+        </th>
+        <th>
+          End Date
+        </th>
+      </tr>
       <tr ng-repeat="budget in homeCtrl.budgets">
         <td>
-          {{budget.budgetId}}
+          {{budget.name}}
+        </td>
+        <td>
+          {{budget.limit}}
+        </td>
+        <td>
+          {{budget.currentAmount}}
+        </td>
+        <td>
+          {{budget.startDate}}
+        </td>
+        <td>
+          {{budget.endDate}}
         </td>
       </tr>
     </table>
