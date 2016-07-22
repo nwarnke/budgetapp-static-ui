@@ -12,6 +12,11 @@ function HomeCtrl($rootScope, $scope, Rest, $window) {
   //   }
   // });
 
+  this.rest.getBudgets().then(function(data){
+    console.log(data);
+  });
+
+
   this.scope = $scope;
   this.budgets = [];
   this.rootScope = $rootScope;

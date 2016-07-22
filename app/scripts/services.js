@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('budgetApp')
-  .factory('Rest', Rest)
-  .factory('AuthenticationService', AuthenticationService);
+  .factory('Rest', Rest);
 
 function Rest($http, $q) {
   var SERVICE_URL;
@@ -59,24 +58,12 @@ function Rest($http, $q) {
     isAuthenticatedToViewPage:function(url){
       var params = {};
       return performGet(url, params);
+    },
+    getBudgets:function(){
+      var params = {};
+      var url = '/home/budgets';
+      return performGet(url, params);
     }
   }
 
-}
-
-function AuthenticationService(){
-  var userIsAuthenticated = false;
-
-  var setUserAuthenticated = function(value){
-    userIsAuthenticated = value;
-  };
-
-  var getUserAuthenticated = function(){
-    return userIsAuthenticated;
-  };
-
-  return {
-    setUserAuthenticated:setUserAuthenticated,
-    getUserAuthenticated:getUserAuthenticated
-  }
 }

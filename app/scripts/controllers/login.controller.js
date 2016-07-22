@@ -3,9 +3,10 @@
 angular.module('budgetApp')
   .controller('LoginCtrl', LoginCtrl);
 
-function LoginCtrl(Rest, $window, AuthenticationService) {
+function LoginCtrl(Rest, $window, $cookies, $rootScope) {
   this.rest = Rest;
-  this.authenticationservice = AuthenticationService;
+  this.rootScope = $rootScope;
+  this.cookies = $cookies;
   this.username = '';
   this.password = '';
   this.style = "display:none";
@@ -25,7 +26,7 @@ LoginCtrl.prototype.submitBtnEvt = function(){
   }
   this.rest.isAuthUser(this.username, this.password).then(function(data){
     if(data.data){
-      vm.authenticationservice.setUserAuthenticated(true);
+      vm.cookies.put('authenticated', true);
       vm.window.location = "#/home";
     }else{
       vm.failedLogin = true;

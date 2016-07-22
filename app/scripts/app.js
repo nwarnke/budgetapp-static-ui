@@ -38,26 +38,15 @@ angular
     }).when('/logOut', {
       redirectTo: '/'
     }).otherwise({
-      redirectTo: '/'
+      redirectTo: '/home'
     });
 
     $httpProvider.defaults.withCredentials = true;
 
-  }).run(function ($rootScope, $location, AuthenticationService) {
-  // enumerate routes that don't need authentication
-  // var routesThatDontRequireAuth = ['/'];
-  //
-  // // check if current location matches route
-  // var routeClean = function (route) {
-  //   return _.find(routesThatDontRequireAuth,
-  //     function (noAuthRoute) {
-  //       return _.str.startsWith(route, noAuthRoute);
-  //     });
-  // };
-
+  }).run(function ($rootScope, $cookies, $location) {
   $rootScope.$on('$routeChangeStart', function () {
     // if route requires auth and user is not logged in
-    if (!AuthenticationService.getUserAuthenticated()) {
+    if (!$cookies.get('authenticated')) {
       // redirect back to login
       $location.path('/');
     }
