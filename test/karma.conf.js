@@ -10,14 +10,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      '/**/*spec.js',
-      '/**/*',
-      '/*'
+      './**/*'
     ],
 
 
@@ -57,7 +55,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -66,6 +64,38 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    options: {
+      runnerPort: 9111
+    },
+    unit: {
+      singleRun: true,
+      background: false,
+      reporters: ['junit', 'coverage', 'dots'],
+      browsers: ['PhantomJS']
+    },
+    loop: {
+      singleRun: false,
+      background: false,
+      reporters: ['dots'],
+      browsers: ['Chrome'],
+      autoWatch: true
+    },
+    loopBackground: {
+      singleRun: false,
+      background: true,
+      reporters: ['dots'],
+      browsers: ['PhantomJS']
+    },
+    ci: {
+      singleRun: true,
+      background: false,
+      reporters: ['junit', 'coverage', 'dots'],
+      browsers: ['PhantomJS']
+    }
+
   })
+
+
 };
