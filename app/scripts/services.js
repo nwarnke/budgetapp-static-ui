@@ -63,6 +63,11 @@ function Rest($http, $q) {
       var params = {};
       var url = '/home/budgets';
       return performGet(url, params);
+    },
+    logout:function(){
+      var params = {};
+      var url = '/logout';
+      return performPost(url, params);
     }
   }
 
