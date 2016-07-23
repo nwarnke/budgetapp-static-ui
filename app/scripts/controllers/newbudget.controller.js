@@ -29,7 +29,17 @@ NewBudgetCtrl.prototype.logout = function(){
 };
 
 NewBudgetCtrl.prototype.submit = function(){
+  var vm = this;
   this.rest.submitNewBudget(this.budgetName, this.amount, this.startDate, this.endDate).then(function(data){
-    console.log(data);
+    if(data.status == 202){
+      vm.navigate('#/home');
+    }else{
+      console.log('print some error to the screen here please');
+    }
   });
 };
+
+NewBudgetCtrl.prototype.navigate = function(url){
+  this.window.location = url;
+};
+
