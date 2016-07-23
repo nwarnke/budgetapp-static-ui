@@ -35,6 +35,10 @@ angular
       templateUrl: 'views/account.html',
       controller: 'AccountCtrl',
       controllerAs: 'accountCtrl'
+    }).when('/newbudget',{
+      templateUrl: 'views/newbudget.html',
+      controller: 'NewBudgetCtrl',
+      controllerAs: 'newBudgetCtrl'
     }).when('/logOut', {
       redirectTo: '/'
     }).otherwise({

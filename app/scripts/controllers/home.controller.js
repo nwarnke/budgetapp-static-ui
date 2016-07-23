@@ -28,16 +28,14 @@ HomeCtrl.prototype.initialize = function(){
   });
 };
 
-
-HomeCtrl.prototype.goTo = function(link){
-  var vm = this;
-  vm.window.location = '/#/'+link;
-};
-
 HomeCtrl.prototype.logout = function(){
   this.cookies.remove('authenticated');
   var vm = this;
   this.rest.logout().then(function(data){
     vm.window.location = '#/';
   });
+};
+
+HomeCtrl.prototype.navigate = function(url){
+  this.window.location = url;
 };
