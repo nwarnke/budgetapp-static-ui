@@ -33,25 +33,25 @@
     <table>
       <tr>
         <td><label>Budget Name:</label></td>
-        <td><input type="text" class="form-control" name="budgetname" placeholder="Budget Name"></td>
+        <td><input type="text" class="form-control" name="budgetname" placeholder="Budget Name" ng-model="newBudgetCtrl.budgetName"></td>
       </tr>
       <tr>
         <td><label>Budget Limit:</label></td>
-        <td><input type="text" class="form-control" name="limit" placeholder="Amount"></td>
+        <td><input type="text" class="form-control" name="limit" placeholder="Amount" ng-model="newBudgetCtrl.amount"></td>
       </tr>
       <tr>
         <td><label>Start Date:</label></td>
-        <td><input type="date" class="form-control" name="startDate" placeholder="Date"></td>
+        <td><input type="date" class="form-control" name="startDate" placeholder="Date" ng-model="newBudgetCtrl.startDate"></td>
       </tr>
       <tr>
         <td><label>End Date:</label></td>
-        <td><input type="date" class="form-control" name="startDate" placeholder="Date"></td>
+        <td><input type="date" class="form-control" name="startDate" placeholder="Date" ng-model="newBudgetCtrl.endDate"></td>
       </tr>
       <tr>
         <td></td>
       </tr>
     </table>
-    <div class="text-center"><button type="button" style="width:100px">Submit</button></div>
+    <div class="text-center"><button type="button" style="width:100px" ng-click="newBudgetCtrl.submit()">Submit</button></div>
   </div>
 
 </div>

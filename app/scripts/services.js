@@ -68,6 +68,16 @@ function Rest($http, $q) {
       var params = {};
       var url = '/logout';
       return performPost(url, params);
+    },
+    submitNewBudget:function(budgetName, amount, startDate, endDate){
+      var params = {
+        budgetName:budgetName,
+        amount:amount,
+        startDate:startDate,
+        endDate:endDate
+      };
+      var url = '/budget/newbudget';
+      return performPost(url, params);
     }
   }
 
