@@ -3,9 +3,8 @@
 angular.module('budgetApp')
   .controller('LoginCtrl', LoginCtrl);
 
-function LoginCtrl(Rest, $window, $cookies, $rootScope) {
+function LoginCtrl(Rest, $window, $cookies) {
   this.rest = Rest;
-  this.rootScope = $rootScope;
   this.cookies = $cookies;
   this.username = '';
   this.password = '';
@@ -13,6 +12,7 @@ function LoginCtrl(Rest, $window, $cookies, $rootScope) {
   this.failedLogin = false;
   this.displayButton = true;
   this.window = $window;
+  this.awesomeThings = [1,2,3];
 }
 
 LoginCtrl.prototype.submitBtnEvt = function(){
