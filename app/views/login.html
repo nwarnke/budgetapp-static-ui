@@ -39,8 +39,11 @@
       <input type="password" class="form-control" name="password" placeholder="Password" ng-model="loginCtrl.password"
              required=""/>
       <p ng-if="loginCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
-      <div style="{{loginCtrl.style}}" class="spinner"></div>
-      <button class="button-primary" type="submit" ng-if="loginCtrl.displayButton" ng-click="loginCtrl.submitBtnEvt()">Login</button>
+      <div ng-if="!loginCtrl.display">
+        <div style="{{loginCtrl.style}}" class="spinner"></div>
+      </div>
+      <button class="button-primary" type="submit" ng-if="loginCtrl.display" ng-click="loginCtrl.submitBtnEvt()">Login
+      </button>
     </div>
     <!--</div>-->
   </div>
