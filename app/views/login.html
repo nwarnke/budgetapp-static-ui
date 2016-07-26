@@ -40,7 +40,7 @@
              required=""/>
       <p ng-if="loginCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
       <div ng-if="!loginCtrl.display">
-        <div style="{{loginCtrl.style}}" class="spinner"></div>
+        <div class="spinner"></div>
       </div>
       <button class="button-primary" type="submit" ng-if="loginCtrl.display" ng-click="loginCtrl.submitBtnEvt()">Login
       </button>

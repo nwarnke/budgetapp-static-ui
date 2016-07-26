@@ -8,7 +8,6 @@ function LoginCtrl(Rest, $window, $cookies) {
   this.cookies = $cookies;
   this.username = '';
   this.password = '';
-  this.style = "display:none";
   this.failedLogin = false;
   this.display = true;
   this.window = $window;
@@ -34,12 +33,10 @@ LoginCtrl.prototype.submitBtnEvt = function(){
     }else{
       vm.failedLogin = true;
     }
-    vm.style = "display:none";
     vm.display = true;
   }).catch(function(error){
     vm.display = true;
     vm.failedLogin = true;
-    vm.style = "display:none";
     console.log(error);
   });
 };
