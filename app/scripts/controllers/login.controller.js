@@ -8,9 +8,8 @@ function LoginCtrl(Rest, $window, $cookies) {
   this.cookies = $cookies;
   this.username = '';
   this.password = '';
-  this.style = "display:none";
   this.failedLogin = false;
-  this.displayButton = true;
+  this.display = true;
   this.window = $window;
   this.awesomeThings = [1,2,3];
 }
@@ -18,7 +17,7 @@ function LoginCtrl(Rest, $window, $cookies) {
 LoginCtrl.prototype.submitBtnEvt = function(){
   this.failedLogin = false;
   this.style = "";
-  this.displayButton = false;
+  this.display = false;
   var vm = this;
   if(this.username == undefined){
     this.username = '';
@@ -34,12 +33,10 @@ LoginCtrl.prototype.submitBtnEvt = function(){
     }else{
       vm.failedLogin = true;
     }
-    vm.style = "display:none";
-    vm.displayButton = true;
+    vm.display = true;
   }).catch(function(error){
-    vm.displayButton = true;
+    vm.display = true;
     vm.failedLogin = true;
-    vm.style = "display:none";
     console.log(error);
   });
 };
