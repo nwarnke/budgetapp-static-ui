@@ -29,4 +29,6 @@ describe('Controller: LoginCtrl', function () {
     expect(ctrl.awesomeThings.length).toEqual(3);
   });
 
+  // it()
+
 });

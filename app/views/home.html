@@ -54,7 +54,7 @@
       </tr>
       <tr ng-repeat="budget in homeCtrl.budgets">
         <td>
-          {{budget.budgetName}}
+          <a href="#/budget">{{budget.budgetName}}</a>
         </td>
         <td>
           {{budget.budgeLimit}}
@@ -67,9 +67,6 @@
         </td>
         <td>
           {{budget.endDate}}
-        </td>
-        <td>
-          <a href="">Edit</a>
         </td>
       </tr>
     </table>

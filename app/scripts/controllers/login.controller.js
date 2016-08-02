@@ -16,7 +16,6 @@ function LoginCtrl(Rest, $window, $cookies) {
 
 LoginCtrl.prototype.submitBtnEvt = function(){
   this.failedLogin = false;
-  this.style = "";
   this.display = false;
   var vm = this;
   if(this.username == undefined){
