@@ -20,7 +20,7 @@ function BudgetCtrl($rootScope) {
       'Value 4': ['g', 'h']
     }
   };
-  this.categories = {subcategory}
+  // this.categories = {subcategory}
   this.myBudget = {category: ['School', 'Vacation', 'Household'], subCategory:[]}
   //this.initialize();
   console.log('welcome');
