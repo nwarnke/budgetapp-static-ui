@@ -31,6 +31,10 @@ angular
       templateUrl: 'views/budget.html',
       controller: 'BudgetCtrl',
       controllerAs: 'budgetCtrl'
+    }).when('/budget/:budgetId', {
+      templateUrl: 'views/budget.html',
+      controller: 'BudgetCtrl',
+      controllerAs: 'budgetCtrl'
     }).when('/account', {
       templateUrl: 'views/account.html',
       controller: 'AccountCtrl',
