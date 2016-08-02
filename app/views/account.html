@@ -1,22 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Account</title>
-</head>
-<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/home"><img src="../images/4.png" alt="4th dimensional thinkers"
+                                                 style="padding-bottom: 30px"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#/home">Home</a></li>
+        <li  class="active"><a href="#/account">My Account</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-click="homeCtrl.logout()" style="cursor:pointer"><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<h1>Here is where the account stuff will be</h1>
-<li><label>User Name: </label><input type="text" ng-model="username" aria-required="true" /></li>
-<li><button ng-click="accountCtrl.clickChangePassword()">Change Password</button></li>
-<div ng-show="accountCtrl.changingPassword">
-<p>
-  <li><label>Enter New Password: </label><input type="text" ></li>
-  <li><label>Confirm New Password: </label><input type="text" ></li>
-  <li><label>Old Password: </label><input type="text" ></li>
-  <li><button ng-click="accountCtrl.submitNewPassword()">Submit New Password</button></li>
-</p>
-</div>
+  <h1>Here is where the account stuff will be</h1>
+<div class="col-md-6 col-lg-3">
+  <div class="row">
+      <div class="col-md-6 col-lg-3"><label>User Name: </label></div>
+      <div class="col-md-6 col-lg-3"><input type="text" ng-model="username" required />
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3" style="padding-right:10%"> <button class="button-primary" style="float:right"ng-click="accountCtrl.clickChangePassword()">Change Password</button></div>
+    <br><br>
+  </div>
 
-</body>
-</html>
+
+
+  <div ng-show="accountCtrl.changingPassword">
+    <form ng-submit = accountCtrl.submitNewPassword()>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3"><label>Enter Old Password: </label></div>
+          <div class="col-md-6 col-lg-3"><input type="text" ng-model="accountCtrl.oldPassword" required />
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-6 col-lg-3"><label>Enter New Password: </label></div>
+          <div class="col-md-6 col-lg-3"><input type="text" ng-model="accountCtrl.newPassword" required />
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-6 col-lg-3"><label>Re-enter New Password: </label></div>
+          <div class="col-md-6 col-lg-3"><input type="text" ng-model="accountCtrl.password" required />
+          </div>
+        </div><br>
+        <div class="row">
+         <div class="col-lg-3" style="padding-right:10%"> <button class="button-primary" style="float:right" ng-click="accountCtrl.submitNewPassword()">Submit</button></div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+

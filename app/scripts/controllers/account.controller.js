@@ -5,21 +5,24 @@ angular.module('budgetApp')
 function AccountCtrl($rootScope, $scope) {
   this.scope = $scope;
   this.changingPassword = false;
-  this.inEditMode = false;
   this.rootScope = $rootScope;
   this.rootScope.showNavBar = true;
   this.initialize();
-  console.log('welcome');
+  console.log('on Account page');
 }
 
 AccountCtrl.prototype.initialize = function() {
-  this.changingPassword = false;
+  var vm = this;
+  vm.changingPassword = false;
 };
 
 AccountCtrl.prototype.clickChangePassword = function () {
-  this.changingPassword = true;
+  var vm = this;
+  vm.changingPassword = true;
 };
 
 AccountCtrl.prototype.submitNewPassword = function () {
-  this.changingPassword = false;
+  var vm = this;
+  alert('Password successfully changed!');
+  vm.changingPassword = false;
 };

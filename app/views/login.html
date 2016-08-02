@@ -32,21 +32,23 @@
     <hr>
     <hr>
     <hr>
-    <div class="form-signin">
-      <h2 class="form-signin-heading">Please login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Username" ng-model="loginCtrl.username"
-             required="" autofocus=""/>
-      <input type="password" class="form-control" name="password" placeholder="Password" ng-model="loginCtrl.password"
-             required=""/>
-      <p ng-if="loginCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
-      <div ng-if="!loginCtrl.display">
-        <div class="spinner"></div>
-      </div>
-      <button class="button-primary" type="submit" ng-if="loginCtrl.display" ng-click="loginCtrl.submitBtnEvt()">Login
-      </button>
+<form ng-submit = "loginCtrl.submitBtnEvt()">
+  <div class="form-signin">
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" name="username" placeholder="Username" ng-model="loginCtrl.username"
+           required="" autofocus=""/>
+    <input type="password" class="form-control" name="password" placeholder="Password" ng-model="loginCtrl.password"
+           required=""/>
+    <p ng-if="loginCtrl.failedLogin" style="color:red">Invalid username/password combination</p>
+    <div ng-if="!loginCtrl.display">
+      <div class="spinner"></div>
     </div>
-    <!--</div>-->
+    <button class="button-primary" type="submit" ng-if="loginCtrl.display" ng-click="loginCtrl.submitBtnEvt()">Login
+    </button>
   </div>
+  <!--</div>-->
+  </div>
+</form>
 
 </div>
 

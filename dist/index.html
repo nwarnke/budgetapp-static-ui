@@ -1,4 +1,63 @@
-<!doctype html> <html> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/main.b57efb11.css"> </head> <body ng-app="budgetApp"> <!--[if lte IE 8]>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/table.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/login.css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <script src="../bower_components/spin.js/spin.js"></script>
+  <script src="../bower_components/angular-spinner/angular-spinner.js"></script>
+
+  <!-- endbuild -->
+
+
+</head>
+<body ng-app="budgetApp">
+
+<!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
-<![endif]--> <div class="container"> <div ng-view=""></div> </div> <script src="scripts/vendor.e309c555.js"></script> <script src="scripts/scripts.53b28be9.js"></script> </body> </html>
+<![endif]-->
+
+
+<div class="container">
+  <div ng-view=""></div>
+</div>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-cookies.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-resource.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-sanitize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular-touch.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/login.controller.js"></script>
+<script src="scripts/controllers/home.controller.js"></script>
+<script src="scripts/controllers/budget.controller.js"></script>
+<script src="scripts/controllers/account.controller.js"></script>
+<script src="scripts/controllers/newbudget.controller.js"></script>
+<script src="scripts/services.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

@@ -5,6 +5,23 @@ angular.module('budgetApp')
 function BudgetCtrl($rootScope) {
   this.rootScope = $rootScope;
   this.rootScope.showNavBar = true;
+  this.testData = {
+    'School': {
+      'Value 1': ['a', 'b', 'c'],
+      'Value 2': ['d', 'e']
+    },
+    'Vacation': {
+      'Value 3': ['f'],
+      'Value 4': ['g', 'h']
+    },
+
+    'Household': {
+      'Value 3': ['f'],
+      'Value 4': ['g', 'h']
+    }
+  };
+  this.categories = {subcategory}
+  this.myBudget = {category: ['School', 'Vacation', 'Household'], subCategory:[]}
   //this.initialize();
   console.log('welcome');
 }
