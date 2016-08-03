@@ -59,8 +59,11 @@ function Rest($http, $q) {
       var params = {};
       return performGet(url, params);
     },
-    getBudgets:function(){
-      var params = {};
+    updateUserInfo:function(username, password){
+      var params = {
+        username: username,
+        password: password
+      };
       var url = '/home/budgets';
       return performGet(url, params);
     },
