@@ -2,9 +2,18 @@
 angular.module('budgetApp')
   .controller('BudgetCtrl', BudgetCtrl);
 
-function BudgetCtrl($rootScope, $routeParams) {
+function BudgetCtrl($rootScope, $routeParams, Rest) {
   this.rootScope = $rootScope;
-  this.$routeParams = $routeParams;
+  this.routeParams = $routeParams;
+  this.rest = Rest;
+  var vm = this;
+  if(this.routeParams.budgetId != null){
+    console.log(this.routeParams.budgetId);
+    this.rest.getBudget(this.routeParams.budgetId).then(function(data){
+      console.log(data);
+    });
+  }
+
   this.rootScope.showNavBar = true;
   this.testData = {
     'School': {

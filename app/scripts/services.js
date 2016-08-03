@@ -78,6 +78,13 @@ function Rest($http, $q) {
       };
       var url = '/budget/newbudget';
       return performPost(url, params);
+    },
+    getBudget:function(budgetId){
+      var params = {
+        budgetId:budgetId
+      };
+      var url = '/budget/getbudget';
+      return performGet(url, params);
     }
   }
 
