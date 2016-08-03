@@ -7,10 +7,12 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
   this.routeParams = $routeParams;
   this.rest = Rest;
   var vm = this;
+  this.tableData  = [];
+
   if(this.routeParams.budgetId != null){
     console.log(this.routeParams.budgetId);
     this.rest.getBudget(this.routeParams.budgetId).then(function(data){
-      console.log(data);
+      vm.tableData = data.data;
     });
   }
 

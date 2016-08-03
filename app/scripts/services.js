@@ -88,7 +88,12 @@ function Rest($http, $q) {
       };
       var url = '/budget/getbudget';
       return performGet(url, params);
-    }
+    },
+    getBudgets:function(){
+    var params = {};
+    var url = '/home/budgets';
+    return performGet(url, params);
+  },
   }
 
 }

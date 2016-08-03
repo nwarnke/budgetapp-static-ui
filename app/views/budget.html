@@ -1,5 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/home"><img src="../images/4.png" alt="4th dimensional thinkers"
+                                                 style="padding-bottom: 30px"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+        <li><a href="#/account">My Account</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-click="homeCtrl.logout()" style="cursor:pointer"><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <head>
   <meta charset="UTF-8">
   <title>Budget - The Budget you clicked on</title>
@@ -7,77 +29,9 @@
 <body>
 
 <h1>Budget Manager - The Budget you clicked on</h1>
-<table id="hardCoded">
-  <thead>
-    <tr>
-      <th>Categories</th>
-      <th>Sub-Categories</th>
-      <th>Expenses</th>
-      <th>Allowance</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Transportation</td>
-      <td></td>
-      <td>I'll be a calculation == $0</td>
-      <td>$700</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Lodging</td>
-      <td></td>
-      <td>I'll be a calculation == $750</td>
-      <td>$800</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Lodging</td>
-      <td>Paris Hotel</td>
-      <td>$200</td>
-      <td>$200</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Lodging</td>
-      <td>Venice Hotel</td>
-      <td>$150</td>
-      <td>$100</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Lodging</td>
-      <td>Rome Hotel</td>
-      <td>$400</td>
-      <td>$500</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Food</td>
-      <td></td>
-      <td>I'll be a calculation == $300</td>
-      <td>$500</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Food</td>
-      <td>Fast Food</td>
-      <td>$210</td>
-      <td>$200</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-    <tr>
-      <td>Food</td>
-      <td>Groceries</td>
-      <td>$90</td>
-      <td>$150</td>
-      <td><button name="deleteLink" ng-click="budgetCtrl.deleteCatOrSubCat('dne yet');">delete</button></td>
-    </tr>
-  </tbody>
-</table>
 
-<table id="forReal" style="display:none">
+
+<table>
   <thead>
   <tr>
     <th>Categories</th>
@@ -88,7 +42,13 @@
   </tr>
   </thead>
   <tbody>
+  <tr>
+
+  </tr>
   </tbody>
 </table>
 </body>
-</html>
+
+<footer class="container-fluid text-center">
+  <p>4th Dimensional Thinkers</p>
+</footer>
