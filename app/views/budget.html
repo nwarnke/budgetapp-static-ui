@@ -47,6 +47,36 @@
   </tr>
   </tbody>
 </table>
+
+<table>
+  <thead>
+  <tr>
+    <th>()</th>
+    <th>Categories</th>
+    <th>Sub-Categories</th>
+    <th>Expenses</th>
+    <th>Allowance</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat-start="category in budget.myBudget">
+    <td>
+      <button ng-if="category.expanded" ng-click="category.expanded = false">-</button>
+      <button ng-if="!category.expanded" ng-click="category.expanded = true">+</button>
+    </td>
+    <td>{{category.name}}</td>
+    <td> <tr ng-repeat-start="item in category.items">
+  </tr></td>
+
+  </tr>
+  <tr ng-if="category.expanded" ng-repeat-end="">
+    <td colspan="3">{{category.items}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
 </body>
 
 <footer class="container-fluid text-center">

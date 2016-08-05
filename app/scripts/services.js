@@ -62,9 +62,10 @@ function Rest($http, $q) {
     updateUserInfo:function(username, password){
       var params = {
         username: username,
-        password: password
+        newPassword: newPassword,
+        oldPassword: oldPassword
       };
-      var url = '/home/budgets';
+      var url = '/account/update';
       return performGet(url, params);
     },
     logout:function(){
