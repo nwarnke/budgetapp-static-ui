@@ -18,10 +18,10 @@ LoginCtrl.prototype.submitBtnEvt = function(){
   this.failedLogin = false;
   this.display = false;
   var vm = this;
-  if(this.username == undefined){
+  if(this.username === undefined){
     this.username = '';
   }
-  if(this.password == undefined){
+  if(this.password === undefined){
     this.password = '';
   }
 

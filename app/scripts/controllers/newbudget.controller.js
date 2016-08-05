@@ -25,21 +25,24 @@ NewBudgetCtrl.prototype.logout = function(){
   var vm = this;
   this.rest.logout().then(function(data){
     vm.window.location = '#/';
+    console.log(data);
   });
 };
 
 NewBudgetCtrl.prototype.submit = function(){
   var vm = this;
   this.rest.submitNewBudget(this.budgetName, this.amount, this.startDate, this.endDate).then(function(data){
-    if(data.status == 202){
+    if(data.status === 202){
       vm.navigate('#/home');
     }else{
       console.log('print some error to the screen here please');
     }
+
   });
 };
 
 NewBudgetCtrl.prototype.navigate = function(url){
   this.window.location = url;
+
 };
 

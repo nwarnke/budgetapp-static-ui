@@ -6,10 +6,11 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
   this.rootScope = $rootScope;
   this.routeParams = $routeParams;
   this.rest = Rest;
-  var vm = this;
   this.tableData = [];
 
-  if (this.routeParams.budgetId != null) {
+
+  var vm = this;
+  if (this.routeParams.budgetId !== null) {
     console.log(this.routeParams.budgetId);
     this.rest.getBudget(this.routeParams.budgetId).then(function (data) {
       vm.tableData = data.data;
@@ -17,7 +18,8 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
   }
   this.rootScope.showNavBar = true;
 
-  var schoolCategory = [{
+  var schoolCategory = {name: 'School',
+  items:[{
     name: 'School fees',
     expense: 2000,
     allowance: 3000
@@ -32,10 +34,11 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
       expense: 800,
       allowance: 850
     }
-  ];
+  ]};
 
 
-  var householdCategory = [{
+  var householdCategory = {name: 'HouseHold',
+    items: [{
     name: 'Groceries',
     expense: 200,
     allowance: 300
@@ -50,7 +53,7 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
       expense: 400,
       allowance: 200
     }
-  ];
+  ]};
 
   var billsCategory = {
     name: 'Bills',
@@ -88,8 +91,8 @@ BudgetCtrl.prototype.checkForRouteParams = function () {
   }
 };
 BudgetCtrl.prototype.getBudgetData = function (link) {
-  var vm = this;
-
+  // var vm = this;
+  console.log(link);
 };
 
 
@@ -99,5 +102,5 @@ BudgetCtrl.prototype.goTo = function (link) {
 };
 
 BudgetCtrl.prototype.deleteCatOrSubCat = function (row) {
-  console.log("In Delete: " + row)
+  console.log("In Delete: " + row);
 };

@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#/home">Home</a></li>
+        <li><a href="#/newbudget"> Create Budget</a></li>
         <li><a href="#/account">My Account</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -60,17 +61,17 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat-start="category in budget.myBudget">
+  <tr ng-repeat="category in budget.myBudget">
     <td>
       <button ng-if="category.expanded" ng-click="category.expanded = false">-</button>
       <button ng-if="!category.expanded" ng-click="category.expanded = true">+</button>
     </td>
     <td>{{category.name}}</td>
-    <td> <tr ng-repeat-start="item in category.items">
+    <td> <tr ng-repeat="item in category.items">
   </tr></td>
 
   </tr>
-  <tr ng-if="category.expanded" ng-repeat-end="">
+  <tr ng-if="category.expanded">
     <td colspan="3">{{category.items}}</td>
   </tr>
   </tbody>

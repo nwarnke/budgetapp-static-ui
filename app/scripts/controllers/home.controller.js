@@ -15,24 +15,26 @@ function HomeCtrl($cookies, Rest, $window) {
 HomeCtrl.prototype.initialize = function(){
   var vm = this;
   this.rest.getBudgets().then(function(reply){
-    if(reply.status == 200) {
+    if(reply.status === 200) {
       vm.budgets = reply.data;
     }
   }).catch(function(error){
-    if(error.status == 500){
+    if(error.status === 500){
       console.log('server error occurred');
-    }else if(error.status == 401){
+    }else if(error.status === 401){
       vm.cookies.remove('authenticated');
       vm.window.location = '#/';
     }
   });
 };
 
+
 HomeCtrl.prototype.logout = function(){
   this.cookies.remove('authenticated');
   var vm = this;
   this.rest.logout().then(function(data){
     vm.window.location = '#/';
+    console.log(data);
   });
 };
 

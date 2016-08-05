@@ -1,3 +1,5 @@
+/*jslint browser: true*/
+/*global $, jQuery, alert*/
 {
   "bitwise": true,
   "browser": true,
@@ -11,6 +13,14 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular": false
+    "angular": false,
+	"$": false,
+	"jQuery": false,
+	"AccountCtrl": false,
+	"BudgetCtrl":false,
+	"HomeCtrl": false,
+	"LoginCtrl": false,
+	"NewBudgetCtrl": false,
+	"Rest": false
   }
 }
