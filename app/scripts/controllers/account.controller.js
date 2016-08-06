@@ -6,7 +6,7 @@ function AccountCtrl($rootScope, $scope, Rest) {
   this.scope = $scope;
   this.changingPassword = false;
   this.rootScope = $rootScope;
-  this.rest = rest;
+  this.rest = Rest;
   this.newPassword = null;
   this.oldPassword = null;
   this.rootScope.showNavBar = true;
@@ -22,6 +22,5 @@ AccountCtrl.prototype.clickChangePassword = function () {
 AccountCtrl.prototype.submitNewPassword = function () {
   var vm = this;
   this.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword);
-  alert('Password successfully changed!');
   vm.changingPassword = false;
 };
