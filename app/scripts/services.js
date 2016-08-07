@@ -80,7 +80,7 @@ function Rest($http, $q) {
         startDate:startDate,
         endDate:endDate
       };
-      var url = '/budget/newbudget';
+      var url = '/home/addbudget';
       return performPost(url, params);
     },
     getBudget:function(budgetId){
@@ -94,7 +94,7 @@ function Rest($http, $q) {
     var params = {};
     var url = '/home/budgets';
     return performGet(url, params);
-  },
+  }
   }
 
 }
