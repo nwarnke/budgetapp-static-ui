@@ -21,6 +21,7 @@ AccountCtrl.prototype.clickChangePassword = function () {
 
 AccountCtrl.prototype.submitNewPassword = function () {
   var vm = this;
-  this.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword);
-  vm.changingPassword = false;
+  this.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword).then(function(data){
+    console.log(data);
+  });
 };
