@@ -19,68 +19,16 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
   }
   this.rootScope.showNavBar = true;
 
-  var schoolCategory = {name: 'School',
-  items:[{
-    name: 'School fees',
-    expense: 2000,
-    allowance: 3000
-  },
-    {
-      name: 'Textbooks',
-      expense: 500,
-      allowance: 700
-    },
-    {
-      name: 'Insurance',
-      expense: 800,
-      allowance: 850
-    }
-  ]};
-
-  var householdCategory = {name: 'HouseHold',
-    items: [{
-    name: 'Groceries',
-    expense: 200,
-    allowance: 300
-  },
-    {
-      name: 'Cleaning Supplies',
-      expense: 50,
-      allowance: 45
-    },
-    {
-      name: 'Decoration',
-      expense: 400,
-      allowance: 200
-    }
-  ]};
-
-  var billsCategory = {
-    name: 'Bills',
-    items: [{
-      name: 'Electric',
-      expense: 80,
-      allowance: 50
-    },
-      {
-        name: 'Gas',
-        expense: 25,
-        allowance: 30
-      },
-      {
-        name: 'Water/Sewage',
-        expense: 20,
-        allowance: 25
-      }
-    ]
-  };
-
-this.myBudget = [];
-  this.myBudget.push(billsCategory, schoolCategory, householdCategory);
-
-  console.log('welcome');
 }
 
+BudgetCtrl.prototype.switchEdit = function (item) {
+ if(item.edit) {
+   item.edit= false;
+ }
+ else {
+   item.edit = true;
+ }
+};
 /*BudgetsHomeCtrl.prototype.initialize = function(){
  var vm = this;
  };*/
