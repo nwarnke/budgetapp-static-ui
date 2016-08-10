@@ -25,57 +25,42 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Budget - The Budget you clicked on</title>
+  <title>Budget - {{budgetCtrl.tableData.budgetName}}</title>
 </head>
 <body>
 
-<h1>Budget Manager - The Budget you clicked on</h1>
+<h1>Budget Manager -{{budgetCtrl.tableData.budgetName}}</h1>
 
 
-<table>
+<table border=1>
   <thead>
   <tr>
-    <th>Categories</th>
-    <th>Sub-Categories</th>
-    <th>Expenses</th>
-    <th>Allowance</th>
-    <th>Action</th>
+    <th><h4>[+]</h4></th>
+    <th><h4>Category</h4></th>
+    <th><h4>Expense</h4></th>
+    <th><h4>Allowance</h4></th>
   </tr>
   </thead>
-  <tbody>
-  <tr>
 
-  </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
+  <tbody ng-repeat="category in budgetCtrl.tableData.categories">
   <tr>
-    <th>()</th>
-    <th>Categories</th>
-    <th>Sub-Categories</th>
-    <th>Expenses</th>
-    <th>Allowance</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="category in budget.myBudget">
     <td>
       <button ng-if="category.expanded" ng-click="category.expanded = false">-</button>
       <button ng-if="!category.expanded" ng-click="category.expanded = true">+</button>
     </td>
-    <td>{{category.name}}</td>
-    <td> <tr ng-repeat="item in category.items">
-  </tr></td>
-
+    <td colspan="1"><h4>{{category.categoryName}}</h4></td>
+    <td colspan="1"><h4>{{category.categoryExpenses}}</h4></td>
+    <td colspan="1"><h4>{{category.categoryLimit}}</h4></td>
   </tr>
-  <tr ng-if="category.expanded">
-    <td colspan="3">{{category.items}}</td>
+  <tr ng-if="category.expanded" ng-repeat="subCat in category.subcategories">
+    <td>stuff</td>
+    <td>{{ subCat.subcategoryName }}</td>
+    <td>{{ subCat.subcategoryExpenses }}</td>
+    <td>{{subCat.subcategoryLimit}}</td>
   </tr>
   </tbody>
 </table>
+
 
 
 </body>

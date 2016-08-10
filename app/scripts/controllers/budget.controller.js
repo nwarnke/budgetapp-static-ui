@@ -14,6 +14,7 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
     console.log(this.routeParams.budgetId);
     this.rest.getBudget(this.routeParams.budgetId).then(function (data) {
       vm.tableData = data.data;
+      console.log(vm.tableData);
     });
   }
   this.rootScope.showNavBar = true;
@@ -35,7 +36,6 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
       allowance: 850
     }
   ]};
-
 
   var householdCategory = {name: 'HouseHold',
     items: [{
@@ -75,7 +75,8 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
     ]
   };
 
-this.myBudget = [schoolCategory, householdCategory, billsCategory];
+this.myBudget = [];
+  this.myBudget.push(billsCategory, schoolCategory, householdCategory);
 
   console.log('welcome');
 }

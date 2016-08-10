@@ -9,6 +9,7 @@
       <a class="navbar-brand" href="#/home"><img src="../images/4.png" alt="4th dimensional thinkers"
                                                  style="padding-bottom: 30px"></a>
     </div>
+
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#/home">Home</a></li>
@@ -66,6 +67,7 @@
         <td><label>Confirm New Password</label></td>
         <td><input type="password" class="form-control" name="confNewPassword" placeholder="Re-enter new password" ng-model="accountCtrl.confNewPassword"></td>
       </tr>
+      <p ng-if="accountCtrl.noMatch" style="color:red">Passwords entered don't match</p>
       <tr>
         <td></td>
       </tr>

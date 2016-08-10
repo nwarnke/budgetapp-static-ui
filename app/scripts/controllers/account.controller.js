@@ -25,6 +25,7 @@ AccountCtrl.prototype.clickChangePassword = function () {
 AccountCtrl.prototype.submitNewPassword = function () {
   var vm = this;
   if(vm.newPassword === vm.confNewPassword) {
+    vm.noMatch = false;
     vm.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword);
     vm.window.alert('Password successfully changed!');
   }
