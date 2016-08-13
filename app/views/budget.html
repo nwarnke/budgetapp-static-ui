@@ -77,7 +77,7 @@
       <span ng-switch-default>{{subCat.subcategoryLimit}}</span></td>
 
     <td><button ng-click="budgetCtrl.switchEdit(subCat)" ng-show="!subCat.edit">Edit</button>
-      <button ng-click="budgetCtrl.switchEdit(subCat)" ng-show="subCat.edit">Save</button></td>
+      <button ng-click="budgetCtrl.save(subCat)" ng-show="subCat.edit">Save</button></td>
   </tr>
   </tbody>
   <tr>

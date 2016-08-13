@@ -95,6 +95,85 @@ function Rest($http, $q) {
     var url = '/home/budgets';
     return performGet(url, params);
   },
+    addCategory:function(id, name, limit, expenses){
+      var params = {
+        categoryId:id,
+        categoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31'
+      };
+      var url = '/budget/addcategory';
+      return performPost(url, params);
+    },
+    addSubCategory:function(id, name, limit, expenses){
+      var params = {
+        subcategoryId:id,
+        subcategoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31'
+      };
+      var url = '/budget/addsubcategory';
+      return performPost(url, params);
+    },
+    updateCategory:function(id, name, limit, expenses){
+      var params = {
+        categoryId:id,
+        categoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31'
+      };
+      var url = '/budget/updatecategory';
+      return performPost(url, params);
+    },
+    updateSubCategory:function(id, name, limit, expenses){
+      var params = {
+        subcategoryId:id,
+        subcategoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31'
+      };
+      var url = '/budget/updatesubcategory';
+      return performPost(url, params);
+    },
+    updateBudget:function(budgetName, amount, startDate, endDate){
+      var params = {
+        budgetName:budgetName,
+        amount:amount,
+        startDate:startDate,
+        endDate:endDate
+      };
+      var url = '/home/updatebudget';
+      return performPost(url, params);
+    },
+    deleteBudget:function(budgetId){
+      var params = {
+        budgetId:budgetId
+      };
+      var url = '/home/deletebudget';
+      return performPost(url, params);
+    },
+    deleteCategory: function(categoryId){
+      var params = {
+        categoryId:categoryId
+      };
+      var url = '/budget/deletecategory';
+      return performPost(url, params);
+    },
+    deleteSubcategory: function(subcategoryId){
+      var params = {
+        subcategoryId:subcategoryId
+      };
+      var url = '/budget/deletesubcategory';
+      return performPost(url, params);
+    },
   };
 
 }

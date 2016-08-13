@@ -44,6 +44,15 @@ BudgetCtrl.prototype.getBudgetData = function (link) {
   console.log(link);
 };
 
+BudgetCtrl.prototype.saveCat = function (link) {
+   var vm = this;
+
+};
+
+BudgetCtrl.prototype.saveSubCat = function (link) {
+  // var vm = this;
+  console.log(link);
+};
 
 BudgetCtrl.prototype.goTo = function (link) {
   var vm = this;
