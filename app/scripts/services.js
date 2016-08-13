@@ -107,7 +107,7 @@ function Rest($http, $q) {
       var url = '/budget/addcategory';
       return performPost(url, params);
     },
-    addSubCategory:function(id, name, limit, expenses){
+    addSubcategory:function(id, name, limit, expenses){
       var params = {
         subcategoryId:id,
         subcategoryName:name,
@@ -131,7 +131,7 @@ function Rest($http, $q) {
       var url = '/budget/updatecategory';
       return performPost(url, params);
     },
-    updateSubCategory:function(id, name, limit, expenses){
+    updateSubcategory:function(id, name, limit, expenses){
       var params = {
         subcategoryId:id,
         subcategoryName:name,
@@ -141,6 +141,30 @@ function Rest($http, $q) {
         endDate:'2016-08-31'
       };
       var url = '/budget/updatesubcategory';
+      return performPost(url, params);
+    },
+    addNewCategory:function(name, limit, expenses, budgetId){
+      var params = {
+        categoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31',
+        budgetId: budgetId
+      };
+      var url = '/budget/addcategory';
+      return performPost(url, params);
+    },
+    addNewSubcategory:function(name, limit, expenses, catId){
+      var params = {
+        subcategoryName:name,
+        limit: limit,
+        expenses:expenses,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31',
+        categoryId: catId
+      };
+      var url = '/budget/addsubcategory';
       return performPost(url, params);
     },
     updateBudget:function(budgetName, amount, startDate, endDate){

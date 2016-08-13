@@ -7,13 +7,15 @@ function BudgetCtrl($rootScope, $routeParams, Rest) {
   this.routeParams = $routeParams;
   this.rest = Rest;
   this.tableData = [];
-
+  this.newCategory = {id: null, name:null, limit:null, expenses:null};
+  this.newSubcategory = {categoryId: null, name:null, limit:null, expenses:null};
 
   var vm = this;
   if (this.routeParams.budgetId !== null) {
     console.log(this.routeParams.budgetId);
     this.rest.getBudget(this.routeParams.budgetId).then(function (data) {
       vm.tableData = data.data;
+      vm.budgetId = vm.routeParams.budgetId;
       console.log(vm.tableData);
     });
   }
@@ -29,29 +31,67 @@ BudgetCtrl.prototype.switchEdit = function (item) {
    item.edit = true;
  }
 };
-/*BudgetsHomeCtrl.prototype.initialize = function(){
- var vm = this;
- };*/
-BudgetCtrl.prototype.checkForRouteParams = function () {
+/*BudgetCtrl.prototype.checkForRouteParams = function () {
   var vm = this;
   if (vm.$routeParams.budgetId) {
     vm.budgetId = vm.$routeParams.budgetId;
     vm.getBudgetData();
   }
-};
-BudgetCtrl.prototype.getBudgetData = function (link) {
+};*/
+/*BudgetCtrl.prototype.getBudgetData = function (link) {
   // var vm = this;
   console.log(link);
-};
+};*/
 
-BudgetCtrl.prototype.saveCat = function (link) {
+BudgetCtrl.prototype.updateCategory = function (category) {
    var vm = this;
-
+  vm.success = false;
+  vm.failure = false;
+  if(vm.rest.updateCategory(category.id, category.name, category.limit, category.expenses)){
+    vm.success = true;
+  }
+  else{
+    vm.failure = true;
+  }
+  vm.switchEdit(category);
 };
 
-BudgetCtrl.prototype.saveSubCat = function (link) {
-  // var vm = this;
-  console.log(link);
+BudgetCtrl.prototype.updateSubcategory = function (subcategory) {
+  var vm = this;
+  vm.success = false;
+  vm.failure = false;
+ if(vm.rest.updateSubcategory(subcategory.id, subcategory.name, subcategory.limit, subcategory.expenses)){
+   vm.success = true;
+ }
+ else{
+   vm.failure = true;
+ }
+  vm.switchEdit(subcategory);
+};
+
+
+BudgetCtrl.prototype.addNewCategory = function () {
+  var vm = this;
+  vm.success = false;
+  vm.failure = false;
+  if(vm.rest.addNewCategory(vm.newCategory.name, vm.newCategory.limit, vm.newCategory.expenses, vm.budgetId)){
+    vm.success = true;
+  }
+  else{
+    vm.failure = true;
+  }
+};
+
+BudgetCtrl.prototype.addNewSubcategory = function () {
+  var vm = this;
+  vm.success = false;
+  vm.failure = false;
+  if(vm.rest.addNewSubcategory(vm.newSubcategory.name, vm.newSubcategory.limit, vm.newSubcategory.expenses, vm.newSubcategory.categoryId)){
+    vm.success = true;
+  }
+  else{
+    vm.failure = true;
+  }
 };
 
 BudgetCtrl.prototype.goTo = function (link) {

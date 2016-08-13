@@ -39,54 +39,101 @@
 
 <h1>Budget Manager -{{budgetCtrl.tableData.budgetName}}</h1>
 
+<div class="alert alert-success"ng-show="budgetCtrl.success">
+  <strong>Success!</strong> Record was saved successfully.
+</div>
+<div class="alert alert-danger" ng-show="budgetCtrl.failure">
+  <strong>Error!</strong> Record was not saved successfully.
+</div>
 
-<table border=1>
-  <thead>
-  <tr>
-    <th></th>
-    <th>Category</th>
-    <th>Expense</th>
-    <th>Allowance</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
+<div>
+  <table border=1>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Category</th>
+      <th>Expense</th>
+      <th>Allowance</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
 
-  <tbody ng-repeat="category in budgetCtrl.tableData.categories" ng-switch on="category.edit">
-  <tr>
-    <td>
-      <button ng-if="category.expanded" ng-click="category.expanded = false">-</button>
-      <button ng-if="!category.expanded" ng-click="category.expanded = true">+</button>
-    </td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryName"></span>
-      <span ng-switch-default><b>{{category.categoryName}}</b></span></td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryExpenses"></span>
-      <span ng-switch-default><b>{{category.categoryExpenses}}</b></span></td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryLimit"></span>
-      <span ng-switch-default><b>{{category.categoryLimit}}</b></span></td>
+    <tbody ng-repeat="category in budgetCtrl.tableData.categories" ng-switch on="category.edit">
+    <tr>
+      <td>
+        <button ng-if="category.expanded" ng-click="category.expanded = false">-</button>
+        <button ng-if="!category.expanded" ng-click="category.expanded = true">+</button>
+      </td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryName"></span>
+        <span ng-switch-default><b>{{category.categoryName}}</b></span></td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryExpenses"></span>
+        <span ng-switch-default><b>{{category.categoryExpenses}}</b></span></td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="category.categoryLimit"></span>
+        <span ng-switch-default><b>{{category.categoryLimit}}</b></span></td>
 
-    <td><button ng-click="budgetCtrl.switchEdit(category)" ng-show="!category.edit">Edit</button>
-      <button ng-click="budgetCtrl.switchEdit(category)" ng-show="category.edit">Save</button></td>
-  </tr>
-  <tr ng-if="category.expanded" ng-repeat="subCat in category.subcategories" ng-switch on ="subCat.edit">
-    <td></td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="subCat.subcategoryName"></span>
-      <span ng-switch-default>{{subCat.subcategoryName}}</span></td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="subCat.subcategoryExpenses"></span>
-      <span ng-switch-default>{{subCat.subcategoryExpenses}}</span></td>
-    <td><span ng-switch-when='true'><input type="text" ng-model="subCat.subcategoryLimit"></span>
-      <span ng-switch-default>{{subCat.subcategoryLimit}}</span></td>
+      <td><button ng-click="budgetCtrl.switchEdit(category)" ng-show="!category.edit">
+        <span class="glyphicon glyphicon-pencil"></span>Edit</button>
+        <button ng-click="budgetCtrl.deleteCategory(category)" ng-show="!category.edit">
+          <span class="glyphicon glyphicon-remove"></span>Delete</button>
 
-    <td><button ng-click="budgetCtrl.switchEdit(subCat)" ng-show="!subCat.edit">Edit</button>
-      <button ng-click="budgetCtrl.save(subCat)" ng-show="subCat.edit">Save</button></td>
-  </tr>
-  </tbody>
-  <tr>
-    <td></td>
-    <td><b>Total</b></td>
-    <td><b>{{budgetCtrl.tableData.budgetExpenses}}</b></td>
-    <td><b>{{budgetCtrl.tableData.budgetLimit}}</b></td>
-  </tr>
-</table>
+        <button ng-click="budgetCtrl.updateCategory(category)" ng-show="category.edit">Save</button></td>
+    </tr>
+
+
+
+    <tr ng-if="category.expanded" ng-repeat="subcat in category.subcategories" ng-switch on ="subcat.edit">
+      <td></td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="subcat.subcategoryName"></span>
+        <span ng-switch-default>{{subcat.subcategoryName}}</span></td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="subcat.subcategoryExpenses"></span>
+        <span ng-switch-default>{{subcat.subcategoryExpenses}}</span></td>
+      <td><span ng-switch-when='true'><input type="text" ng-model="subcat.subcategoryLimit"></span>
+        <span ng-switch-default>{{subcat.subcategoryLimit}}</span></td>
+
+      <td><button ng-click="budgetCtrl.switchEdit(subcat)" ng-show="!subcat.edit">
+        <span class="glyphicon glyphicon-pencil"></span>Edit</button>
+        <button ng-click="budgetCtrl.updatesubcategory(subcat)" ng-show="subcat.edit">Save</button></td>
+    </tr>
+    </tbody>
+    <tr>
+      <td></td>
+      <td><b>Total</b></td>
+      <td><b>{{budgetCtrl.tableData.budgetExpenses}}</b></td>
+      <td><b>{{budgetCtrl.tableData.budgetLimit}}</b></td>
+    </tr>
+    <!-- Blank category row for adding new subcats-->
+    <tr>
+      <td>
+      </td>
+      <td colspan="3"> <b>Add a category</b></td></tr>
+    <tr>
+      <td></td>
+      <td><input type="text" ng-model="budgetCtrl.newCategory.name"></td>
+      <td><input type="text" ng-model="budgetCtrl.newCategory.expenses"></td>
+      <td><input type="text" ng-model="budgetCtrl.newCategory.limit"></td>
+      <td><button ng-click="budgetCtrl.addNewCategory()">Save</button></td>
+    </tr>
+    <tr><td><td><td><td></td></tr>
+    <!-- Blank subcategory row for adding new subcats-->
+    <tr>
+      <td></td>
+      <td colspan="2"> <b>Add a subcategory for category:</b>
+        <select ng-options="category.categoryId as category.categoryName for category in budgetCtrl.tableData.categories" ng-model="budgetCtrl.newSubcategory.categoryId"></select>
+     {{category.categoryId}}
+      </td></tr>
+    <tr>
+      <td></td>
+      <td><input type="text" ng-model="budgetCtrl.newSubcategory.name"></td>
+      <td><input type="text" ng-model="budgetCtrl.newSubcategory.expenses"></td>
+      <td><input type="text" ng-model="budgetCtrl.newSubcategory.limit"></td>
+      <td><button ng-click="budgetCtrl.addNewSubcategory()">Save</button></td>
+    </tr>
+
+  </table>
+{{budgetCtrl.newSubcategory.categoryId}}
+
+
+</div>
 
 
 
