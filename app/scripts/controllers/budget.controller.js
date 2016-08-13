@@ -75,11 +75,14 @@ BudgetCtrl.prototype.addNewCategory = function () {
   vm.success = false;
   vm.failure = false;
   if(vm.rest.addNewCategory(vm.newCategory.name, vm.newCategory.limit, vm.newCategory.expenses, vm.budgetId)){
+    vm.window.location.reload();
     vm.success = true;
   }
   else{
+    vm.window.location.reload();
     vm.failure = true;
   }
+
 };
 
 BudgetCtrl.prototype.addNewSubcategory = function () {
@@ -87,9 +90,11 @@ BudgetCtrl.prototype.addNewSubcategory = function () {
   vm.success = false;
   vm.failure = false;
   if(vm.rest.addNewSubcategory(vm.newSubcategory.name, vm.newSubcategory.limit, vm.newSubcategory.expenses, vm.newSubcategory.categoryId)){
+    vm.window.location.reload();
     vm.success = true;
   }
   else{
+    vm.window.location.reload();
     vm.failure = true;
   }
 };
