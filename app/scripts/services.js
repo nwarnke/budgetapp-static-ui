@@ -167,12 +167,13 @@ function Rest($http, $q) {
       var url = '/budget/addsubcategory';
       return performPost(url, params);
     },
-    updateBudget:function(budgetName, amount, startDate, endDate){
+    updateBudget:function(budgetName, amount,limit){
       var params = {
         budgetName:budgetName,
         amount:amount,
-        startDate:startDate,
-        endDate:endDate
+        limit: limit,
+        startDate: '2016-08-01',
+        endDate:'2016-08-31'
       };
       var url = '/home/updatebudget';
       return performPost(url, params);
