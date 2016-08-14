@@ -99,8 +99,8 @@ function Rest($http, $q) {
       var params = {
         categoryId:id,
         categoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31'
       };
@@ -111,8 +111,8 @@ function Rest($http, $q) {
       var params = {
         subcategoryId:id,
         subcategoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31'
       };
@@ -123,8 +123,8 @@ function Rest($http, $q) {
       var params = {
         categoryId:id,
         categoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31'
       };
@@ -135,8 +135,8 @@ function Rest($http, $q) {
       var params = {
         subcategoryId:id,
         subcategoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31'
       };
@@ -146,8 +146,8 @@ function Rest($http, $q) {
     addNewCategory:function(name, limit, expenses, budgetId){
       var params = {
         categoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31',
         budgetId: budgetId
@@ -158,8 +158,8 @@ function Rest($http, $q) {
     addNewSubcategory:function(name, limit, expenses, catId){
       var params = {
         subcategoryName:name,
-        limit: limit,
-        expenses:expenses,
+        limit: limit.toString(),
+        expenses:expenses.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31',
         categoryId: catId
@@ -167,11 +167,12 @@ function Rest($http, $q) {
       var url = '/budget/addsubcategory';
       return performPost(url, params);
     },
-    updateBudget:function(budgetName, amount,limit){
+    updateBudget:function(budgetId, budgetName, amount,limit){
       var params = {
+        budgetId: budgetId,
         budgetName:budgetName,
-        amount:amount,
-        limit: limit,
+        amount:amount.toString(),
+        limit: limit.toString(),
         startDate: '2016-08-01',
         endDate:'2016-08-31'
       };
