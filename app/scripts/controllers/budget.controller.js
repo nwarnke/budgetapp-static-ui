@@ -2,7 +2,8 @@
 angular.module('budgetApp')
   .controller('BudgetCtrl', BudgetCtrl);
 
-function BudgetCtrl($rootScope, $routeParams, Rest, $window) {
+function BudgetCtrl($rootScope, $routeParams, $cookies, Rest, $window) {
+  this.cookies = $cookies;
   this.rootScope = $rootScope;
   this.routeParams = $routeParams;
   this.window = $window;
@@ -11,14 +12,14 @@ function BudgetCtrl($rootScope, $routeParams, Rest, $window) {
   this.newCategory = {id: null, name:null, limit:null, expenses:null};
   this.newSubcategory = {categoryId: null, name:null, limit:null, expenses:null};
   this.budgetEdit = false;
-
+  this.loading = true;
   var vm = this;
   if (this.routeParams.budgetId !== null) {
     console.log(this.routeParams.budgetId);
     this.rest.getBudget(this.routeParams.budgetId).then(function (data) {
       vm.tableData = data.data;
       vm.budgetId = vm.routeParams.budgetId;
-      console.log(vm.tableData);
+      vm.loading = false;
     });
   }
   this.rootScope.showNavBar = true;
@@ -27,12 +28,7 @@ function BudgetCtrl($rootScope, $routeParams, Rest, $window) {
 
 BudgetCtrl.prototype.editBudget = function () {
   var vm = this;
-  if(vm.budgetEdit) {
-    vm.budgetEdit= false;
-  }
-  else {
-    vm.budgetEdit = true;
-  }
+  vm.budgetEdit = !vm.budgetEdit;
 };
 
 BudgetCtrl.prototype.switchEdit = function (item) {
@@ -190,4 +186,13 @@ BudgetCtrl.prototype.updateBudget = function(){
   });
   vm.newCategory = {id: null, name:null, limit:null, expenses:null};
   vm.newSubcategory = {categoryId: null, name:null, limit:null, expenses:null};
-  }
+};
+
+BudgetCtrl.prototype.logout = function(){
+  this.cookies.remove('authenticated');
+  var vm = this;
+  this.rest.logout().then(function(data){
+    vm.window.location = '#/';
+    console.log(data);
+  });
+};

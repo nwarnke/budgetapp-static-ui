@@ -4,6 +4,7 @@ angular.module('budgetApp')
 
 function HomeCtrl($cookies, Rest, $window) {
   this.rest = Rest;
+  this.loading = true;
   this.cookies = $cookies;
   this.window = $window;
   this.budgets = [];
@@ -17,6 +18,7 @@ HomeCtrl.prototype.initialize = function(){
   this.rest.getBudgets().then(function(reply){
     if(reply.status === 200) {
       vm.budgets = reply.data;
+      vm.loading = false;
     }
   }).catch(function(error){
     if(error.status === 500){

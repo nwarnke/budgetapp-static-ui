@@ -6,6 +6,7 @@
     font-size : large;
   }
 </style>
+<div class="loading" ng-if="budgetCtrl.loading">Loading&#8230;</div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -24,7 +25,7 @@
         <li><a href="#/account">My Account</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ng-click="homeCtrl.logout()" style="cursor:pointer"><a>Logout</a></li>
+        <li ng-click="budgetCtrl.logout()" style="cursor:pointer"><a>Logout</a></li>
       </ul>
     </div>
   </div>
@@ -39,7 +40,7 @@
 
 <h1>Budget Manager -{{budgetCtrl.tableData.budgetName}}</h1>
 
-<div class="alert alert-success"ng-show="budgetCtrl.success">
+<div class="alert alert-success" ng-show="budgetCtrl.success">
   <strong>Success!</strong> Record was saved successfully.
 </div>
 <div class="alert alert-danger" ng-show="budgetCtrl.failure">
