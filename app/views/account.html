@@ -29,7 +29,6 @@
 <div class="alert alert-danger" ng-show="accountCtrl.failure">
   <strong>Error!</strong> Record was not saved successfully.
 </div>
-
     <div class="container-fluid text-center">
       <form ng-submit = accountCtrl.submitNewPassword() ng-if = accountCtrl.changePassword>
         <div class="row content">
@@ -37,6 +36,7 @@
             <h1>Change Password</h1>
           </div>
           <table>
+
             <tr>
               <td><label>User Name:</label></td>
               <td><input type="text" class="form-control" name="username" placeholder="Enter username" ng-model="accountCtrl.username" required></td>
