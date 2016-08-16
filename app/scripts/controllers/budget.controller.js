@@ -149,6 +149,7 @@ BudgetCtrl.prototype.deleteBudget = function () {
 
 BudgetCtrl.prototype.updateBudget = function(){
   var vm = this;
+  this.loading = true;
   this.rest.getBudget(this.routeParams.budgetId).then(function (data) {
     vm.tableData = data.data;
     var categories = vm.tableData.categories;
@@ -181,6 +182,7 @@ BudgetCtrl.prototype.updateBudget = function(){
       vm.tableData = data.data;
       vm.budgetEdit = false;
       vm.success = true;
+      vm.loading = false;
     });
     //vm.window.location.reload();
   });
