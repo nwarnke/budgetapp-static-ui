@@ -4,6 +4,8 @@ angular.module('budgetApp')
 
 function AccountCtrl($rootScope, $scope, Rest, $window) {
   this.scope = $scope;
+  this.cookies = $cookies;
+  this.changingPassword = false;
   this.rootScope = $rootScope;
   this.window = $window;
   this.rest = Rest;
@@ -44,4 +46,13 @@ AccountCtrl.prototype.submitNewPassword = function () {
   else{
     vm.noMatch = true;
   }
+};
+
+AccountCtrl.prototype.logout = function(){
+  this.cookies.remove('authenticated');
+  var vm = this;
+  this.rest.logout().then(function(data){
+    vm.window.location = '#/';
+    console.log(data);
+  });
 };
