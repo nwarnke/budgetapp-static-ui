@@ -23,6 +23,12 @@
   </div>
 </nav>
 
+<div class="alert alert-success" ng-show="accountCtrl.success">
+  <strong>Success!</strong> Record was saved successfully.
+</div>
+<div class="alert alert-danger" ng-show="accountCtrl.failure">
+  <strong>Error!</strong> Record was not saved successfully.
+</div>
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#profile">Menu 1</a></li>

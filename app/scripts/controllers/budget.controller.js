@@ -41,18 +41,10 @@ BudgetCtrl.prototype.switchEdit = function (item) {
  }
 };
 
-BudgetCtrl.prototype.cancelCategory = function (category, $index) {
+BudgetCtrl.prototype.cancel = function () {
   var vm = this;
-  category = vm.tableData.categories[$index];
-  vm.switchEdit(category);
+  vm.window.location.reload();
 };
-
-BudgetCtrl.prototype.cancelSubcategory = function (subcategory, $index) {
-  var vm = this;
-
-  vm.switchEdit(subcategory);
-};
-
 
 BudgetCtrl.prototype.updateCategory = function (category) {
    var vm = this;

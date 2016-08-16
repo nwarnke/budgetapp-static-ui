@@ -10,6 +10,9 @@ function AccountCtrl($rootScope, $scope, Rest, $window) {
   this.rest = Rest;
   this.newPassword = null;
   this.oldPassword = null;
+  this.success = false;
+  this.failure = false;
+  this.noMatch = false;
   this.confNewPassword = null;
   this.rootScope.showNavBar = true;
   this.changePassword = true;
@@ -24,9 +27,16 @@ AccountCtrl.prototype.clickChangePassword = function () {
 
 AccountCtrl.prototype.submitNewPassword = function () {
   var vm = this;
+  vm.success = false;
+  vm.failure = false;
   if(vm.newPassword === vm.confNewPassword) {
     vm.noMatch = false;
-    vm.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword);
+    if(vm.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword)){
+      vm.success = true;
+    }
+    else{
+      vm.failure = true;
+    }
     vm.window.alert('Password successfully changed!');
   }
   else{
