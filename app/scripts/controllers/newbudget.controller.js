@@ -10,6 +10,7 @@ function NewBudgetCtrl($cookies, Rest, $window) {
   this.amount = 0;
   this.startDate = '';
   this.endDate = '';
+  this.failure = false;
 
   if(this.cookies.get('authenticated')){
     this.initialize();
@@ -38,6 +39,8 @@ NewBudgetCtrl.prototype.submit = function(){
       console.log('print some error to the screen here please');
     }
 
+  }).catch(function(error){
+    vm.failure = true;
   });
 };
 

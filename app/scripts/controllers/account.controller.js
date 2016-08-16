@@ -42,6 +42,8 @@ AccountCtrl.prototype.submitNewPassword = function () {
       }else{
         vm.failure = true;
       }
+    }).catch(function(error){
+      vm.failure = true;
     });
   }
   else{
