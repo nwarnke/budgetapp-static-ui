@@ -30,76 +30,39 @@
   <strong>Error!</strong> Record was not saved successfully.
 </div>
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#profile">Menu 1</a></li>
-  <li><a data-toggle="tab" href="#password">Menu 2</a></li>
-</ul>
-
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>HOME</h3>
-    <p>Some content.</p>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-  <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-</div>
-
-<div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-8 text-left">
-        <h1>Edit Profile</h1>
-      </div>
-        <table>
-          <tr>
-            <td><label>First Name:</label></td>
-            <td><input type="text" class="form-control" name="firstName" ng-model="accountCtrl.currentUser.firstName" required></td>
-          </tr>
-          <tr>
-            <td><label>Last Name:</label></td>
-            <td><input type="text" class="form-control" name="lastName" ng-model="accountCtrl.currentUser.lastName" required></td>
-          </tr>
-          <tr>
-            <td><label>Username</label></td>
-            <td><input type="text" class="form-control" name="username" ng-model="accountCtrl.currentUser.username"></td>
-          </tr>
-        </table>
-        <div class="text-center"><button type="submit"  ng-click="accountCtrl.saveUserInfo()">Save Changes</button></div>
-      </div>
-
-  <form ng-submit = accountCtrl.submitNewPassword() ng-if = accountCtrl.changePassword>
-  <div class="row content">
-    <div class="col-sm-8 text-left">
-      <h1>Change Password</h1>
+    <div class="container-fluid text-center">
+      <form ng-submit = accountCtrl.submitNewPassword() ng-if = accountCtrl.changePassword>
+        <div class="row content">
+          <div class="col-sm-8 text-left">
+            <h1>Change Password</h1>
+          </div>
+          <table>
+            <tr>
+              <td><label>User Name:</label></td>
+              <td><input type="text" class="form-control" name="username" placeholder="Enter username" ng-model="accountCtrl.username" required></td>
+            </tr>
+            <tr>
+              <td><label>Old Password:</label></td>
+              <td><input type="password" class="form-control" name="oldPassword" placeholder="Enter current password" ng-model="accountCtrl.oldPassword" required></td>
+            </tr>
+            <tr>
+              <td><label>New Password:</label></td>
+              <td><input type="password" class="form-control" name="newPassword" placeholder="Enter new password" ng-model="accountCtrl.newPassword"></td>
+            </tr>
+            <tr>
+              <td><label>Confirm New Password</label></td>
+              <td><input type="password" class="form-control" name="confNewPassword" placeholder="Re-enter new password" ng-model="accountCtrl.confNewPassword"></td>
+            </tr>
+            <p ng-if="accountCtrl.noMatch" style="color:red">Passwords entered don't match</p>
+            <tr>
+              <td></td>
+            </tr>
+          </table>
+          <div class="text-center"><button type="button" style="width:100px" ng-click="accountCtrl.submitNewPassword()">Submit</button></div>
+        </div>
+      </form>
     </div>
-    <table>
-      <tr>
-        <td><label>User Name:</label></td>
-        <td><input type="text" class="form-control" name="username" placeholder="Enter username" ng-model="accountCtrl.username" required></td>
-      </tr>
-      <tr>
-        <td><label>Old Password:</label></td>
-        <td><input type="password" class="form-control" name="oldPassword" placeholder="Enter current password" ng-model="accountCtrl.oldPassword" required></td>
-      </tr>
-      <tr>
-        <td><label>New Password:</label></td>
-        <td><input type="password" class="form-control" name="newPassword" placeholder="Enter new password" ng-model="accountCtrl.newPassword"></td>
-      </tr>
-      <tr>
-        <td><label>Confirm New Password</label></td>
-        <td><input type="password" class="form-control" name="confNewPassword" placeholder="Re-enter new password" ng-model="accountCtrl.confNewPassword"></td>
-      </tr>
-      <p ng-if="accountCtrl.noMatch" style="color:red">Passwords entered don't match</p>
-      <tr>
-        <td></td>
-      </tr>
-    </table>
-    <div class="text-center"><button type="button" style="width:100px" ng-click="accountCtrl.submitNewPassword()">Submit</button></div>
-  </div>
-</form>
-</div>
+
+
+
+

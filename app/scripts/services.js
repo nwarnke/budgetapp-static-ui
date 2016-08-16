@@ -5,11 +5,11 @@ angular.module('budgetApp')
 
 function Rest($http, $q) {
   var SERVICE_URL;
-  if (window.location.hostname === 'localhost') {
+  /*if (window.location.hostname === 'localhost') {
     SERVICE_URL = 'http://localhost:8080';
-  } else {
+  } else {*/
     SERVICE_URL = 'https://budget-management-backend.herokuapp.com';
-  }
+  //}
   var performPost = function (url, params) {
     var deferred = $q.defer();
     $http({
@@ -200,6 +200,16 @@ function Rest($http, $q) {
       var url = '/budget/deletesubcategory';
       return performPost(url, params);
     },
+    saveUserInfo: function(firstname, lastname, username, userid){
+      var params =  {
+        firstname: firstname,
+        lastname: lastname,
+        username: username,
+        userid: userid
+      };
+      var url = '/account/save';
+      return performPost(url, params);
+    }
   };
 
 }
