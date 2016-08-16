@@ -2,7 +2,7 @@
 angular.module('budgetApp')
   .controller('AccountCtrl', AccountCtrl);
 
-function AccountCtrl($rootScope, $scope, Rest, $window) {
+function AccountCtrl($rootScope, $cookies, $scope, Rest, $window) {
   this.scope = $scope;
   this.cookies = $cookies;
   this.changingPassword = false;
@@ -32,16 +32,17 @@ AccountCtrl.prototype.saveUserInfo = function () {
 
 AccountCtrl.prototype.submitNewPassword = function () {
   var vm = this;
-  vm.success = false;
-  vm.failure = false;
+  this.success = false;
+  this.failure = false;
   if(vm.newPassword === vm.confNewPassword) {
     vm.noMatch = false;
-    if(vm.rest.updateUserInfo(vm.username, vm.newPassword, vm.oldPassword)){
-      vm.success = true;
-    }
-    else{
-      vm.failure = true;
-    }
+    this.rest.updateUserInfo(this.newPassword, this.oldPassword).then(function(data){
+      if(data){
+        vm.success = true;
+      }else{
+        vm.failure = true;
+      }
+    });
   }
   else{
     vm.noMatch = true;
